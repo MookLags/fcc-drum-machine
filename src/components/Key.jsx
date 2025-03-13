@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 
 const Key = ({ letter }) => {
+  const [isHovered, setIsHovered] = useState(false);
 
   const keyStyle = {
     display: "flex",
@@ -10,9 +11,13 @@ const Key = ({ letter }) => {
     width: "100px",
     height: "100px",
     borderRadius: "10px",
+    border: "none",
+    textDecoration: "none",
     backgroundColor: "#232323",
     fontFamily: "sans-serif",
-    fontSize: "3rem"
+    fontSize: "3rem",
+    transform: isHovered ? "translateY(-5px)" : "translateY(0)",
+    transition: "0.3s ease"
   };
 
   const pStyle = {
@@ -23,12 +28,14 @@ const Key = ({ letter }) => {
   }
 
   return (
-    <div
+    <button
       style={keyStyle} 
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <div style={pStyle}
       >{letter}</div>
-    </div>
+    </button>
   )
 }
 
