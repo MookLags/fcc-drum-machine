@@ -17,6 +17,7 @@ const Key = ({ letter }) => {
     fontFamily: "sans-serif",
     fontSize: "3rem",
     transform: isHovered ? "translateY(-5px)" : "translateY(0)",
+    cursor: isHovered ? "pointer" : "normal",
     transition: "0.3s ease"
   };
 

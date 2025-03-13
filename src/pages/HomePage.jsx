@@ -6,7 +6,7 @@ const HomePage = () => {
   }
   return (
     <div>
-      <Key />
+      <Key letter="S" />
     </div>
   )
 }
