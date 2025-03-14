@@ -11,7 +11,7 @@ const Key = ({ letter }) => {
     width: "100px",
     height: "100px",
     borderRadius: "10px",
-    border: "none",
+    border: "1px solid white",
     textDecoration: "none",
     backgroundColor: "#232323",
     fontFamily: "sans-serif",
