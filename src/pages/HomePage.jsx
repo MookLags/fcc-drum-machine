@@ -1,8 +1,10 @@
 import Key from '../components/Key';
 import Keyboard from '../components/Keyboard';
 import Display from '../components/Display';
+import { useState } from 'react';
 
 const HomePage = () => {
+  const [selectedKey, setSelectedKey] = useState("");
 
   const accentColor = "#232323";
 
@@ -17,9 +19,9 @@ const HomePage = () => {
   }
 
   return (
-    <div style={divStyle}>
-      <Keyboard />
-      <Display />
+    <div id="drum-machine" style={divStyle}>
+      <Keyboard onKeyPress={setSelectedKey} />
+      <Display text={selectedKey} />
     </div>
   )
 }

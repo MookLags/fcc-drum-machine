@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 
-const Key = ({ letter, audioSource }) => {
+const Key = ({ letter, audioSource, name, onClick }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [key, setKey] = useState("");
@@ -33,15 +33,19 @@ const Key = ({ letter, audioSource }) => {
 
   const playSound = () => {
     if (audioRef.current) {
+      console.log(audioRef.current);
       audioRef.current.currentTime = 0;
-      audioRef.current.play();
+      audioRef.current.play().catch(error => console.log("Audio not playing", error));
     }
+    onClick(name);
   }
 
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key.toLowerCase() === letter.toLowerCase()) {
         setIsActive(true);
+        onClick(name);
+        console.log(audioRef.current);
         audioRef.current.currentTime = 0;
         audioRef.current.play();
       }
@@ -58,22 +62,22 @@ const Key = ({ letter, audioSource }) => {
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("keyup", handleKeyUp);
     }
-  }, [letter])
+  }, [])
 
   return (
-    <div>
-    <audio ref={audioRef} preload="auto" src={audioSource} />
-    <button
-      style={keyStyle} 
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onMouseDown={() => setIsActive(true)}
-      onMouseUp={() => setIsActive(false)}
-      onClick={playSound}
-    >
-      <div style={pStyle}
-      >{letter}</div>
-    </button>
+    <div className="drum-pad" onClick={playSound} id={name}>
+      <audio className="clip" id={letter.toUpperCase()} ref={audioRef} src={audioSource} />
+      <button
+        style={keyStyle} 
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onMouseDown={() => setIsActive(true)}
+        onMouseUp={() => setIsActive(false)}
+        
+      >
+        <div style={pStyle}
+        >{letter.toUpperCase()}</div>
+      </button>
     </div>
   )
 }
