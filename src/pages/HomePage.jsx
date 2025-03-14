@@ -10,7 +10,7 @@ const HomePage = () => {
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "center",
-    marginTop: "100px",
+    marginTop: "130px",
     marginLeft: "-20px", 
     color: accentColor
   }

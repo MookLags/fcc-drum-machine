@@ -1,0 +1,16 @@
+user stories and brainstorming:
+
+1) I need an outer container with the id of "drum-machine" that contains everything else.
+2) I also need a "#display" div which shows the button pressed and its corresponding sound
+3) I need 9 clickable drum pad elements which each play a unique sound. These also need to be mapped to the 9 rightmost alphabetic computer keys.
+4) Within each ".drum-pad" there should be an HTML5 audio element which has a src attribute pointing to an audio clip with a class name of "clip." Their id's should correstpond to the letter to which they are mapped.
+5) Clicking on a ".drum-pad" element should trigger the sound.
+6) So should pressing the associated key.
+7) When a ".drum-pad" is triggered, the name of the sound should appear in the #display
+
+Goals for this morning:
+1) Learn to use the audio element
+2) Map a sound to a button via click
+3) Add styles for when button is active (css filter to change color)
+4) Add #display
+5) Add audio elements to Key components in Keyboard
