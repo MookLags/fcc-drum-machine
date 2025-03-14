@@ -1,5 +1,6 @@
 import Key from '../components/Key';
 import Keyboard from '../components/Keyboard';
+import Display from '../components/Display';
 
 const HomePage = () => {
 
@@ -18,9 +19,7 @@ const HomePage = () => {
   return (
     <div style={divStyle}>
       <Keyboard />
-      <div style={{display: "flex"}}>
-        Output container will go here
-      </div>
+      <Display />
     </div>
   )
 }
